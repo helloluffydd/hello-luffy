@@ -1,4 +1,4 @@
-import { BlogPosts } from 'app/components/posts'
+import ArticlesList from '@/components/ArticlesList';
 
 export const metadata = {
   title: 'Blog',
@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <section>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Blog</h1>
-      <BlogPosts />
+      <ArticlesList />
     </section>
-  )
+  );
 }

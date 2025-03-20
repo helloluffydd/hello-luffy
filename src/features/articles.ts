@@ -3,11 +3,11 @@ import path from 'path';
 import matter from 'gray-matter';
 
 export interface ArticleMetadata {
-  titie: string;
+  title: string;
   publishedAt: string;
   excerpt: string;
-  ccoverImgAlt: string;
-  covverImgUrl: string;
+  coverImgAlt: string;
+  coverImgSrc: string;
   tags: string[];
   draft?: boolean;
 }

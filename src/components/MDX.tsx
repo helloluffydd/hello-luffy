@@ -29,7 +29,6 @@ function Table({ data }) {
 function CustomLink(props) {
   let href = props.href;
 
-  
   if (href.startsWith('/')) {
     return (
       <Link href={href} {...props}>
@@ -37,20 +36,27 @@ function CustomLink(props) {
       </Link>
     );
   }
-  
+
   if (href.startsWith('#')) {
     return <a {...props} />;
   }
-  
+
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
 function RoundedImage(props) {
-
-  console.log('image', props)
-  return <Image alt={props.alt} className="rounded-lg" width={4} height={3} src={props.src} {...props} />;
+  return (
+      <span className="w-full inline-block relative aspect-4/3 rounded-lg">
+        <Image
+          src={props.src}
+          alt={props.alt}
+          fill={true}
+          className="object-cover"
+          {...props}
+        />
+      </span>
+  );
 }
-
 
 function Code({ children, ...props }) {
   let codeHTML = children;
@@ -100,14 +106,13 @@ let components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  // img: RoundedImage,
+  img: RoundedImage,
   a: CustomLink,
   code: Code,
   Table,
 };
 
 export function CustomMDX(props) {
-
   return (
     <MDXRemote
       {...props}

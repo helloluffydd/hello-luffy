@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from '@/components/MDX';
-import { formatDate, getArticles } from '@/libs/articles';
+import { getArticles } from '@/features/articles';
 import { baseUrl } from 'src/app/sitemap';
 import { CalendarDays, Tags } from 'lucide-react';
 
@@ -58,8 +58,6 @@ export default function Article({ params }) {
   if (!post) {
     notFound();
   }
-
-
 
   const { title, publishedAt, excerpt, coverImgSrc, tags } = post.metadata;
 

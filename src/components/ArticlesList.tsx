@@ -1,5 +1,6 @@
-import { getArticles } from '@/libs/articles';
 import PostCard from './PostCard';
+
+import { getArticles } from '@/features/articles';
 
 export default function ArticlesList() {
   const articles = getArticles();
@@ -18,11 +19,11 @@ export default function ArticlesList() {
         {articles.map(({ slug, metadata }) => (
           <li key={slug}>
             <PostCard
-              publishedAt={metadata.publishedAt}
-              coverImgSrc={metadata.coverImgSrc}
-              coverImgAlt={metadata.coverImgAlt}
               title={metadata.title}
+              publishedAt={metadata.publishedAt}
               excerpt={metadata.excerpt}
+              coverImgSrc={ metadata.coverImgSrc}
+              coverImgAlt={metadata.coverImgAlt}
               url={`/articles/${slug}`}
             />
           </li>
